@@ -19,7 +19,6 @@ export default Base.extend({
 
   authenticate(creds) {
     const { identification, password } = creds;
-
     const data = JSON.stringify({
       auth: {
         email: identification,
