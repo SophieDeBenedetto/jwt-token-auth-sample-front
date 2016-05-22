@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
       debugger;
       newUser.save().catch((reason) => {
         debugger;
-        this.set('errorMessage', reason)
+        this.set('errorMessage', reason.errors[0].detail)
       }).then(()=>{
         debugger;
         var credentials = {identification: newUser.get('email'), password: newUser.get('password')},
