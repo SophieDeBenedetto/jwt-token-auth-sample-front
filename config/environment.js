@@ -20,9 +20,7 @@ module.exports = function(environment) {
   };
 
   ENV['ember-simple-auth'] = {
-    store: 'simple-auth-session-store:local-storage',
     authorizer: 'authorizer:custom',
-    // crossOriginWhiteList: ['http://localhost:3000'],
     routeAfterAuthentication: '/'
   };
   

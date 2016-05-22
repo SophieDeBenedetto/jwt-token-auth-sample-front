@@ -1,9 +1,14 @@
-{{#if session.isAuthenticated}}
-  <li><a href="#">Hi, {{sessionAccount.account.email}}</a></li>
-  <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
-{{else}}
-  <li id="login">{{#link-to 'login'}}Login{{/link-to}}</li>
-{{/if}}
-{{outlet}}
+<div class="container">
+
+  <h1>Ember JWT Token Auth Example App</h1>
+
+  {{#if session.isAuthenticated}}
+    <li><a href="#">Hi, {{sessionAccount.account.email}}</a></li>
+    <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
+  {{else}}
+    <li id="login">{{#link-to 'login'}}Login{{/link-to}}</li>
+  {{/if}}
+  {{outlet}}
+</div>
 
 
