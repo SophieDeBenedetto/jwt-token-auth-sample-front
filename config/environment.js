@@ -20,29 +20,15 @@ module.exports = function(environment) {
   };
 
   ENV['ember-simple-auth'] = {
-    authorizer: 'authorizer:token',
-    crossOriginWhitelist: ['*'],
+    store: 'simple-auth-session-store:local-storage',
+    authorizer: 'authorizer:custom',
+    // crossOriginWhiteList: ['http://localhost:3000'],
     routeAfterAuthentication: '/'
   };
-
- 
   
-  ENV['ember-simple-auth-token'] = {
-    // authorizer: 'authorizer:token',
-    // store: 'ember-simple-auth-session-store:local-storage',
-    serverTokenEndpoint: 'http://localhost:3000/knock/auth_token',
-    serverTokenRefreshEndpoint: 'http://localhost:3000/knock/auth_token',
-    authorizationPrefix: 'jwt ',
-    tokenPropertyName: 'jwt',
-    authorizationHeaderName: 'Authorization',
-    refreshAccessTokens: true,
-    tokenExpireName: 'exp',
-    refreshLeeway: 0,
-    timeFactor: 1,
-    headers: {} 
-  };
 
   if (environment === 'development') {
+    ENV.host = 'http://localhost:3000';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
