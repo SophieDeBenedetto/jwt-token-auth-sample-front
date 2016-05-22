@@ -8,13 +8,17 @@ export default Ember.Controller.extend({
       let newUser = user;
       debugger;
       newUser.save().catch((reason) => {
+        debugger;
         this.set('errorMessage', reason)
-      }).then((user)=>{
+      }).then(()=>{
+        debugger;
         var credentials = {identification: newUser.get('email'), password: newUser.get('password')},
           authenticator = 'authenticator:jwt';
 
         this.get('session').authenticate(authenticator, credentials).catch((reason)=>{
+          debugger;
           this.set('errorMessage', reason.error || reason);
+          debugger;
         });
       })
     }

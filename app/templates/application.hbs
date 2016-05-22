@@ -6,7 +6,8 @@
     <li><a href="#">Hi, {{sessionAccount.account.email}}</a></li>
     <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
   {{else}}
-    <li id="login">{{#link-to 'login'}}Login{{/link-to}}</li>
+    <li>{{#link-to 'login'}}Log In{{/link-to}}</li>
+    <li>{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
   {{/if}}
   {{outlet}}
 </div>
