@@ -16,7 +16,6 @@ export default Ember.Controller.extend({
           debugger;
         });
       }).catch((adapterError) => {
-        debugger;
         let errors = adapterError.errors.map(function(er) {return er.detail.detail})
         this.set('errorMessage', errors)
       })
