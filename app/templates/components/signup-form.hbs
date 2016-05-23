@@ -1,0 +1,33 @@
+<div class="col-sm-6 col-sm-offset-3" stye="text-align: center">
+<h2>Sign Up</h2>
+
+<form {{action "submit" on="submit"}}>
+
+  <label for="name">First Name</label>
+  {{input value=user.firstName placeholder="enter first name" class="form-control"}}
+
+   <label for="name">Last Name</label>
+  {{input value=user.lastName placeholder="enter last name" class="form-control"}}
+
+  <label for="email">Email</label>
+  {{input value=user.email placeholder="enter email" class="form-control"}}
+
+  <label for="password">Password</label>
+  {{input value=user.password type="password" placeholder="enter password" class="form-control my-form"}}
+
+  <label for="passwordConfirmation">Password Confirmation</label>
+  {{input value=user.passwordConfirmation type="password" placeholder="enter password again" class="form-control my-form"}}
+  <br>
+  <button type="submit" class="btn btn-default">Login</button>
+</form>
+
+{{#if errorMessage}}
+  <ul>
+    {{#each errorMessage as |error|}}
+      <li>
+        {{format-registration-errors error}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
+</div>
