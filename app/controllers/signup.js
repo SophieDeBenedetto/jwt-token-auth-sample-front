@@ -5,14 +5,9 @@ export default Ember.Controller.extend({
 
   actions: {
     save(user){
-      let newUser = user;
-      debugger;
-      newUser.save().catch((reason) => {
+      user.save().then(()=>{
         debugger;
-        this.set('errorMessage', reason.errors[0].detail)
-      }).then(()=>{
-        debugger;
-        var credentials = {identification: newUser.get('email'), password: newUser.get('password')},
+        var credentials = {identification: user.get('email'), password: user.get('password')},
           authenticator = 'authenticator:jwt';
 
         this.get('session').authenticate(authenticator, credentials).catch((reason)=>{
@@ -20,6 +15,10 @@ export default Ember.Controller.extend({
           this.set('errorMessage', reason.error || reason);
           debugger;
         });
+      }).catch((adapterError) => {
+        debugger;
+        let errors = adapterError.errors.map(function(er) {return er.detail.detail})
+        this.set('errorMessage', errors)
       })
     }
   }
