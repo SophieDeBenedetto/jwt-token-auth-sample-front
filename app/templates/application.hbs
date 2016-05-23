@@ -9,7 +9,25 @@
     <li>{{#link-to 'login'}}Log In{{/link-to}}</li>
     <li>{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
   {{/if}}
-  {{outlet}}
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading"><strong>Session Info</strong></div>
+    <div class="panel-body" style="background-color: #FEFFFF;">
+      <ul>
+        <li>
+          <strong>Session is authenticated?</strong>  {{session.isAuthenticated}}
+        </li>
+
+        <li>
+          <strong>Session Contents:</strong>
+            <p style="word-wrap: break-word;">{{session-object-formatter session.data.authenticated}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+  {{outlet}}
+
+
 
 

@@ -6,18 +6,17 @@ export default Ember.Controller.extend({
   actions: {
     save(user){
       user.save().then(()=>{
-        debugger;
         var credentials = {identification: user.get('email'), password: user.get('password')},
           authenticator = 'authenticator:jwt';
 
         this.get('session').authenticate(authenticator, credentials).catch((reason)=>{
-          debugger;
           this.set('errorMessage', reason.error || reason);
-          debugger;
         });
       }).catch((adapterError) => {
-        let errors = adapterError.errors.map(function(er) {return er.detail.detail})
-        this.set('errorMessage', errors)
+        if (adapterError.errors) {
+          let errors = adapterError.errors.map(function(er) {return er.detail.detail})
+          this.set('errorMessage', errors)
+        }
       })
     }
   }
