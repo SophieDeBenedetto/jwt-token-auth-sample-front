@@ -5,7 +5,7 @@ export default Base.extend({
   session: Ember.inject.service(),
   authorize(data, block) {
     if (Ember.testing) {
-      block('Authorization', 'Bearer hotdog');
+      block('Authorization', 'Bearer beyonce');
     }
     const { token } = data
     if (this.get('session.isAuthenticated') && token) {

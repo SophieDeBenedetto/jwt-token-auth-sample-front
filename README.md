@@ -1,7 +1,12 @@
-### TODO:
+# JWT Auth Sample App
 
-* install ember bootstrap and style signup and users pages
-* build sign up feature
-    * build handlebars helper to take in array of registration error messages and list them
-* display session content on log in/log out
-* blog post
+This project demonstrates one implementation of JWT authorization by customizing the [Ember Simple Auth](https://github.com/simplabs/ember-simple-auth) add-on. To learn more, check out my blog post on this project.
+
+#### Custom Authenticator
+
+The custom authenticator is defined in `app/authenticators/jwt.js`. It extends ESA's base authenticator and hits an enpoint of a [Rails API](https://github.com/SophieDeBenedetto/jwt-token-auth-sample-api) that uses Knock to implement JWT authentication. 
+
+
+#### Custom Authorizer
+
+The custom authorizer is defined in `app/authorizers/custom.js`. It sets the Authentication header of outgoing requests to `Bearer <jwt token>`, the format expected by Knock on the backend. 
