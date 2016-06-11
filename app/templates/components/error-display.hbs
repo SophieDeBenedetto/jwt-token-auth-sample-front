@@ -1,0 +1,9 @@
+{{#if errorMessage}}
+  <ul>
+    {{#each errorMessage as |error|}}
+      <li>
+        {{format-registration-errors error}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

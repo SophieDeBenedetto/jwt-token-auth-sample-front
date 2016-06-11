@@ -1,10 +1,11 @@
 import Ember from 'ember';
 
 export function formatRegistrationErrors(error) {
-  if (error[0].includes("_")) {
-    return error[0].replace("_", " ").toLocaleLowerCase();
+  let errMsg = (error[0].detail.detail || error[0].detail);
+  if (errMsg.includes("_")) {
+    return errMsg.replace("_", " ").toLocaleLowerCase();
   } else {
-    return error[0].toLocaleLowerCase()
+    return errMsg.toLocaleLowerCase()
   }
 }
 

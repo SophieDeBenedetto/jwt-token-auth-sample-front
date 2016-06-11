@@ -21,13 +21,6 @@
   <button type="submit" class="btn btn-default">Login</button>
 </form>
 
-{{#if errorMessage}}
-  <ul>
-    {{#each errorMessage as |error|}}
-      <li>
-        {{format-registration-errors error}}
-      </li>
-    {{/each}}
-  </ul>
-{{/if}}
+{{error-display errorMessage=errorMessage}}
+
 </div>

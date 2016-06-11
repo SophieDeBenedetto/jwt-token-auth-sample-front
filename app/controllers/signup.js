@@ -14,8 +14,7 @@ export default Ember.Controller.extend({
         });
       }).catch((adapterError) => {
         if (adapterError.errors) {
-          let errors = adapterError.errors.map(function(er) {return er.detail.detail})
-          this.set('errorMessage', errors)
+          this.set('errorMessage', adapterError.errors)
         }
       })
     }
